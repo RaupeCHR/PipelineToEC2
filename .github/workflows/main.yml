@@ -1,11 +1,8 @@
-name: CI
+name: Node.js CI
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
   workflow_dispatch:
 
 jobs:
@@ -22,9 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: npm ci
-      - run: npm run build
-      - run: npm run test
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Run index.js
+        run: node index.js
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.1
