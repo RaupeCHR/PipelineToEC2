@@ -55,7 +55,7 @@
           server {
               listen 80;
               # listen 443 ssl;
-              server_name tutorial2.RaupeCHR.com;
+              server_name my-app.com www.my-app.com;
 
               # SSL-Konfiguration (wenn benötigt)
               # ssl_certificate /etc/ssl/main.crt;
